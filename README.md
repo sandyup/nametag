@@ -241,6 +241,12 @@ Licensed under the [GNU Affero General Public License v3.0](LICENSE). This ensur
 - **Self-hosting**: Open an issue on GitHub
 - **Security issues**: See [SECURITY.md](SECURITY.md)
 
+## Support Development
+
+If you find NameTag useful and want to support its development, you can buy me a coffee! ☕
+
+<a href="https://www.buymeacoffee.com/mattogodoy" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 ---
 
 Built with care for people who care about people.

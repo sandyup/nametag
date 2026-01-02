@@ -1,4 +1,5 @@
 import { getVersion, isPreRelease } from '@/lib/version';
+import { isSaasMode } from '@/lib/features';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const version = getVersion();
   const isPre = isPreRelease();
+  const showSupportDevelopment = !isSaasMode();
 
   return (
     <div className="space-y-6">
@@ -178,6 +180,38 @@ export default function AboutPage() {
           </p>
         </div>
       </div>
+
+      {/* Support Development - Only show in self-hosted mode */}
+      {showSupportDevelopment && (
+        <div className="bg-white dark:bg-gray-800 shadow rounded-lg p-6">
+          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            Support Development
+          </h3>
+
+          <div className="space-y-4">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
+              If you find NameTag useful and want to support its development, you can buy me a coffee! ☕
+            </p>
+
+            <a
+              href="https://www.buymeacoffee.com/mattogodoy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me A Coffee"
+                className="h-[60px] w-[217px]"
+              />
+            </a>
+
+            <p className="text-xs text-gray-500 dark:text-gray-500">
+              Your support helps keep this project alive and continuously improving!
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
