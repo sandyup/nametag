@@ -33,7 +33,7 @@ export default async function SettingsLayout({
           </h1>
 
           <div className="flex flex-col md:flex-row gap-6">
-            {/* Sidebar Navigation */}
+            {/* Settings Navigation - responsive (dropdown on mobile, sidebar on desktop) */}
             <aside className="w-full md:w-64 flex-shrink-0">
               <SettingsNav isSaasMode={isSaasMode} />
             </aside>
