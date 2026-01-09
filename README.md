@@ -244,3 +244,4 @@ Licensed under the [GNU Affero General Public License v3.0](LICENSE). This ensur
 ---
 
 Built with care for people who care about people.
+
