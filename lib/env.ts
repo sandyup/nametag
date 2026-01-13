@@ -33,6 +33,9 @@ const envSchema = z.object({
 
   // SaaS mode - enables billing and tier limits (undocumented, for internal use)
   SAAS_MODE: z.coerce.boolean().default(false),
+
+  // Application URL for generating links in emails
+  NEXT_PUBLIC_APP_URL: z.string().url().optional(),
 });
 
 export type Env = z.infer<typeof envSchema>;
