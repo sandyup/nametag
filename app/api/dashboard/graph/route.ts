@@ -1,7 +1,6 @@
 import { prisma } from '@/lib/prisma';
 import { formatFullName } from '@/lib/nameUtils';
 import { apiResponse, handleApiError, withAuth } from '@/lib/api-utils';
-import { Prisma } from '@prisma/client';
 
 interface GraphNode {
   id: string;
@@ -26,7 +25,7 @@ export const GET = withAuth(async (request, session) => {
     const limit = searchParams.get('limit');
 
     // Build where clause
-    const whereClause: Prisma.PersonWhereInput = {
+    const whereClause = {
       userId: session.user.id,
       deletedAt: null,
       // Filter by group if specified

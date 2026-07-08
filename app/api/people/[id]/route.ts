@@ -2,7 +2,6 @@ import { prisma } from '@/lib/prisma';
 import { updatePersonSchema, deletePersonSchema, validateRequest } from '@/lib/validations';
 import { apiResponse, handleApiError, parseRequestBody, withAuth } from '@/lib/api-utils';
 import { sanitizeName, sanitizeNotes } from '@/lib/sanitize';
-import { Prisma } from '@prisma/client';
 import { canEnableReminder } from '@/lib/billing';
 
 // GET /api/people/[id] - Get a single person
@@ -117,7 +116,7 @@ export const PUT = withAuth(async (request, session, context) => {
     const sanitizedNotes = notes ? sanitizeNotes(notes) : null;
 
     // Build update data
-    const updateData: Prisma.PersonUpdateInput = {
+    const updateData = {
       name: sanitizedName,
       surname: sanitizedSurname,
       nickname: sanitizedNickname,

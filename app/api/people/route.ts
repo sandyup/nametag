@@ -2,7 +2,6 @@ import { prisma } from '@/lib/prisma';
 import { createPersonSchema, validateRequest } from '@/lib/validations';
 import { apiResponse, handleApiError, parseRequestBody, withAuth } from '@/lib/api-utils';
 import { sanitizeName, sanitizeNotes } from '@/lib/sanitize';
-import { Prisma } from '@prisma/client';
 import { canCreateResource, canEnableReminder, getUserUsage } from '@/lib/billing';
 
 // GET /api/people - List all people for the current user
@@ -110,7 +109,7 @@ export const POST = withAuth(async (request, session) => {
     const sanitizedNotes = notes ? sanitizeNotes(notes) : null;
 
     // Create person data based on whether it's a direct or indirect connection
-    const personData: Prisma.PersonCreateInput = {
+    const personData = {
       user: {
         connect: { id: session.user.id },
       },
